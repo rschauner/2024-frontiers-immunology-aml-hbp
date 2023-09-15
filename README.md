@@ -2,7 +2,7 @@
 
 ## Running Analysis
 
-The workflow uses [Snakemake](https://snakemake.github.io/) and mamba. 
+The workflow uses [Snakemake](https://snakemake.github.io/) and [mamba](https://mamba.readthedocs.io/en/latest/index.html). 
 To get started, install mamba by running the following code in the terminal (MacOS or Linux only):
 
 ```bash
