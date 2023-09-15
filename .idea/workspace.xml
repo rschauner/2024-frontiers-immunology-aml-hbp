@@ -1,0 +1,478 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="8fd88459-a92a-4bee-854b-a6fd252db97a" name="Changes" comment="Analysis Progress&#10;--------&#10;Code clean up&#10;Error handling&#10;Use SVG graphics" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager">
+    <option name="groupingKeys">
+      <option value="directory" />
+    </option>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="RMarkdown.document" />
+        <option value="R Script" />
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="rwrapper:///err$throw" root0="SKIP_INSPECTION" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 3
+}</component>
+  <component name="ProjectId" id="2NkIt6JVZlXGrmu6GWau1i7HX4s" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowPanel.toolwindow.highlight.mappings&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowPanel.toolwindow.highlight.symlinks&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowPanel.toolwindow.show.date&quot;: &quot;false&quot;,
+    &quot;WebServerToolWindowPanel.toolwindow.show.permissions&quot;: &quot;false&quot;,
+    &quot;WebServerToolWindowPanel.toolwindow.show.size&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/M262567/Projects/aml_hbp&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;shared-indexes&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  },
+  &quot;keyToStringList&quot;: {
+    &quot;GitStage.ChangesTree.GroupingKeys&quot;: [
+      &quot;directory&quot;,
+      &quot;module&quot;,
+      &quot;repository&quot;
+    ],
+    &quot;com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File&quot;: [
+      &quot;Python&quot;,
+      &quot;PLAIN_TEXT&quot;
+    ]
+  }
+}</component>
+  <component name="PyConsoleOptionsProvider">
+    <option name="myPythonConsoleState">
+      <console-settings>
+        <option name="useSoftWraps" value="true" />
+      </console-settings>
+    </option>
+  </component>
+  <component name="RdControllerToolWindowsLayoutState" isNewUi="true">
+    <layout>
+      <window_info id="Space Code Reviews" />
+      <window_info id="Bookmarks" side_tool="true" />
+      <window_info id="Commit_Guest" show_stripe_button="false" />
+      <window_info id="Pull Requests" />
+      <window_info id="Learn" />
+      <window_info id="R_Remote_Host" side_tool="true" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19791667" />
+      <window_info id="Commit" order="1" weight="0.20448954" />
+      <window_info id="Structure" order="2" weight="0.19791667" />
+      <window_info anchor="bottom" id="R_Jobs" show_stripe_button="false" weight="0.29190475" />
+      <window_info anchor="bottom" id="Database Changes" />
+      <window_info anchor="bottom" id="TypeScript" />
+      <window_info anchor="bottom" id="Python Packages" weight="0.48172587" />
+      <window_info anchor="bottom" x="713" y="764" width="1727" height="474" id="R_Console" weight="0.32238096" />
+      <window_info anchor="bottom" id="File Transfer" />
+      <window_info anchor="bottom" id="Python Console" />
+      <window_info anchor="bottom" id="Run" />
+      <window_info anchor="bottom" id="Dependency Checker" />
+      <window_info anchor="bottom" id="Version Control" order="0" weight="0.32243901" />
+      <window_info anchor="bottom" id="Problems View" order="1" weight="0.35876775" />
+      <window_info active="true" anchor="bottom" x="130" y="357" width="1114" height="474" id="Terminal" order="2" visible="true" weight="0.43761903" />
+      <window_info anchor="bottom" id="Services" order="3" weight="0.38047618" />
+      <window_info anchor="right" id="Remote Host" />
+      <window_info anchor="right" id="Endpoints" />
+      <window_info anchor="right" id="R_Tools" weight="0.3299508" />
+      <window_info anchor="right" id="documentation.v2" side_tool="true" />
+      <window_info anchor="right" id="SciView" />
+      <window_info anchor="right" id="Meet New UI" show_stripe_button="false" side_tool="true" />
+      <window_info anchor="right" id="Notifications" order="0" weight="0.33005953" />
+      <window_info anchor="right" id="Database" order="1" weight="0.25" />
+    </layout>
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/workflow/scripts/public_single_cell" />
+      <recent name="$PROJECT_DIR$/workflow/envs/" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/workflow/scripts/bulk_rna_seq" />
+      <recent name="$PROJECT_DIR$/workflow/scripts/stetson_single_cell" />
+      <recent name="$PROJECT_DIR$/workflow/scripts/public_single_cell" />
+      <recent name="$PROJECT_DIR$/workflow" />
+      <recent name="$PROJECT_DIR$/workflow/envs" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="8fd88459-a92a-4bee-854b-a6fd252db97a" name="Changes" comment="" />
+      <created>1680201867944</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1680201867944</updated>
+      <workItem from="1680201869097" duration="75000" />
+      <workItem from="1680201986721" duration="711000" />
+      <workItem from="1680209313688" duration="756000" />
+      <workItem from="1680210523197" duration="90000" />
+      <workItem from="1680210691410" duration="153000" />
+      <workItem from="1680272192189" duration="335000" />
+      <workItem from="1680272656513" duration="599000" />
+      <workItem from="1680284732736" duration="599000" />
+      <workItem from="1680289484630" duration="638000" />
+      <workItem from="1680292702071" duration="3426000" />
+      <workItem from="1680532060765" duration="13933000" />
+      <workItem from="1680551424606" duration="596000" />
+      <workItem from="1680552304996" duration="4809000" />
+      <workItem from="1680617493338" duration="1241000" />
+      <workItem from="1680618975309" duration="35000" />
+      <workItem from="1680619018541" duration="14084000" />
+      <workItem from="1681925522900" duration="109000" />
+      <workItem from="1681925644416" duration="7431000" />
+      <workItem from="1681935210981" duration="599000" />
+      <workItem from="1682009831465" duration="8020000" />
+      <workItem from="1682088848599" duration="1154000" />
+      <workItem from="1682090461866" duration="631000" />
+      <workItem from="1682104798501" duration="594000" />
+      <workItem from="1682350041868" duration="991000" />
+      <workItem from="1682368993982" duration="359000" />
+      <workItem from="1682443310158" duration="9911000" />
+      <workItem from="1682603944770" duration="6567000" />
+      <workItem from="1682624217788" duration="599000" />
+      <workItem from="1682631266187" duration="2326000" />
+      <workItem from="1682690814573" duration="3531000" />
+      <workItem from="1682711093486" duration="3804000" />
+      <workItem from="1682948696895" duration="32000" />
+      <workItem from="1682948743908" duration="1711000" />
+      <workItem from="1682952976503" duration="4754000" />
+      <workItem from="1683036799368" duration="5443000" />
+      <workItem from="1683123029771" duration="3991000" />
+      <workItem from="1683136476155" duration="21518000" />
+      <workItem from="1683298650186" duration="599000" />
+      <workItem from="1683649279254" duration="626000" />
+      <workItem from="1683902221659" duration="4380000" />
+      <workItem from="1684156131616" duration="599000" />
+      <workItem from="1684165010311" duration="155000" />
+      <workItem from="1684165181054" duration="4054000" />
+      <workItem from="1684421107907" duration="1015000" />
+      <workItem from="1684507115253" duration="598000" />
+      <workItem from="1684765781686" duration="10318000" />
+      <workItem from="1684850587581" duration="597000" />
+      <workItem from="1684854757425" duration="599000" />
+      <workItem from="1690213351399" duration="2721000" />
+      <workItem from="1690905633889" duration="598000" />
+      <workItem from="1691166966342" duration="598000" />
+      <workItem from="1691175744040" duration="50000" />
+      <workItem from="1691175820341" duration="824000" />
+      <workItem from="1691176667709" duration="333000" />
+      <workItem from="1691177007800" duration="118000" />
+      <workItem from="1691177132089" duration="119000" />
+      <workItem from="1691177256427" duration="126235000" />
+      <workItem from="1692127654073" duration="128000" />
+      <workItem from="1692127897041" duration="33458000" />
+      <workItem from="1692288075319" duration="11232000" />
+      <workItem from="1692367484343" duration="5745000" />
+      <workItem from="1692373392041" duration="10128000" />
+      <workItem from="1692639457713" duration="741000" />
+      <workItem from="1692826226726" duration="2006000" />
+      <workItem from="1692904831461" duration="1296000" />
+      <workItem from="1692906451561" duration="1480000" />
+      <workItem from="1692907993152" duration="5442000" />
+      <workItem from="1692976884895" duration="143000" />
+      <workItem from="1692989212261" duration="23975000" />
+      <workItem from="1693240939052" duration="1545000" />
+      <workItem from="1693337435754" duration="11925000" />
+      <workItem from="1693948580578" duration="612000" />
+      <workItem from="1694018750066" duration="19225000" />
+      <workItem from="1694544638753" duration="5517000" />
+      <workItem from="1694707063826" duration="4357000" />
+    </task>
+    <task id="LOCAL-00001" summary="IDE Changes and Minor code updates&#10;--------&#10;Add renv.lock file&#10;Add .Rprofile for project&#10;Text updates and reorganizing in public_data_analysis.rmd">
+      <created>1680551982093</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1680551982093</updated>
+    </task>
+    <task id="LOCAL-00002" summary="IDE Changes and Minor code updates&#10;--------&#10;Add renv.lock file&#10;Add .Rprofile for project&#10;Text updates and reorganizing in public_data_analysis.rmd">
+      <created>1680557966688</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1680557966688</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Analysis Progress&#10;--------&#10;Update renv with single cell packages&#10;Headings, new analysis in public_data_analysis.rmd">
+      <created>1680643465043</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1680643465043</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Analysis Progress&#10;--------&#10;Add single_cell_analysis.rmd">
+      <created>1680643499548</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1680643499548</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Enviroment Update&#10;--------&#10;Install survminer">
+      <created>1682445477457</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1682445477457</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Analysis Progress&#10;--------&#10;Formatting updates (code and text)&#10;New plots&#10;Add batch correction&#10;Add cache dependency management">
+      <created>1682446595386</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1682446595386</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Add Data Mainifests&#10;--------&#10;Clinical Information Manifest&#10;RNA Seq Manifest">
+      <created>1682526606543</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1682526606543</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Analysis Progress&#10;--------&#10;Add new Plots&#10;Code Formatting&#10;Add code to change MGEA5 -&gt; OGA&#10;Add HTML to GitHub LFS">
+      <created>1682529684987</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1682529684987</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Analysis Progress&#10;--------&#10;Add new Plots&#10;Code Formatting&#10;Add code to change MGEA5 -&gt; OGA&#10;Add HTML to GitHub LFS">
+      <created>1682529884978</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1682529884978</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Code Updates&#10;--------&#10;Workaround for rcastelo/GSVA#74&#10;Namespacing in import code">
+      <created>1682530029532</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1682530029532</updated>
+    </task>
+    <task id="LOCAL-00011" summary="IDE Updates&#10;--------">
+      <created>1682530048442</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1682530048442</updated>
+    </task>
+    <task id="LOCAL-00012" summary="IDE Updates&#10;--------">
+      <created>1682605573274</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1682605573274</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Enviorment Update&#10;--------&#10;Recover from Undoing previous commit">
+      <created>1682606954122</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1682606954122</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Bug Fixes&#10;--------&#10;GSVA error in .mapGeneSetsToFeatures fixed by skipping IRanges::CharacterList&#10;Use box to prevent namespace errors&#10;Add _dependencies.R to allow renv to continue working">
+      <created>1682697595994</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1682697595995</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Bug Fixes&#10;--------&#10;GSVA error in .mapGeneSetsToFeatures fixed by skipping IRanges::CharacterList&#10;Use box to prevent namespace errors&#10;Add _dependencies.R to allow renv to continue working">
+      <created>1682700528864</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1682700528864</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Bug Fixes&#10;--------&#10;Switch to fastmatch to keep names for geneset list&#10;Object name errors">
+      <created>1682951048164</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1682951048164</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Enviroment Update&#10;--------&#10;No need for _dependencies.R as renv works with box">
+      <created>1682951083152</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1682951083152</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Bug Fixes&#10;--------&#10;Fix GO:BP subsetting issue&#10;Remove heatmaps that take too long to render">
+      <created>1683036927195</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1683036927195</updated>
+    </task>
+    <task id="LOCAL-00019" summary="Environment Update&#10;--------&#10;Upgrade renv to 0.17.3">
+      <created>1683036970555</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1683036970555</updated>
+    </task>
+    <task id="LOCAL-00020" summary="IDE Update&#10;--------">
+      <created>1683037023047</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1683037023047</updated>
+    </task>
+    <task id="LOCAL-00021" summary="Analysis Progress&#10;--------&#10;Test using ComplexHeatmap&#10;Change figure generation method to SVG&#10;Update renv.lock with new packages">
+      <created>1683220981990</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1683220981990</updated>
+    </task>
+    <task id="LOCAL-00022" summary="Analysis Progress&#10;--------&#10;Change DT options to have scrollbar and buttons&#10;Add all GO Gene sets">
+      <created>1683221009774</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1683221009774</updated>
+    </task>
+    <task id="LOCAL-00023" summary="IDE Update&#10;--------">
+      <created>1683221021511</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1683221021511</updated>
+    </task>
+    <task id="LOCAL-00024" summary="Remove Large Files&#10;--------">
+      <created>1683902385291</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1683902385291</updated>
+    </task>
+    <task id="LOCAL-00025" summary="Improve Reproducibility&#10;--------&#10;Remove Section to subset data on a Mac">
+      <created>1683904715014</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1683904715014</updated>
+    </task>
+    <task id="LOCAL-00026" summary="Analysis Progress&#10;--------&#10;Calculate median expression per dataset&#10;Use all GO sets&#10;Fix spacing issues&#10;Add author name">
+      <created>1683912065166</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1683912065166</updated>
+    </task>
+    <task id="LOCAL-00027" summary="Improve Reproducibility&#10;--------&#10;Add script to download most data">
+      <created>1683913510962</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1683913510962</updated>
+    </task>
+    <task id="LOCAL-00028" summary="Enviorment Update&#10;--------&#10;Prevent renv activation on login node">
+      <created>1684163054980</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1684163054980</updated>
+    </task>
+    <task id="LOCAL-00029" summary="IDE Update&#10;--------">
+      <created>1684164670698</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1684164670698</updated>
+    </task>
+    <task id="LOCAL-00030" summary="Analysis Progress&#10;--------&#10;Code clean up&#10;Error handling&#10;Use SVG graphics">
+      <created>1684169339435</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1684169339435</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="dependencySupport" implementationName="python:google-cloud-storage" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="IDE Changes and Minor code updates&#10;--------&#10;Add renv.lock file&#10;Add .Rprofile for project&#10;Text updates and reorganizing in public_data_analysis.rmd" />
+    <MESSAGE value="Analysis Progress&#10;--------&#10;Update renv with single cell packages&#10;Headings, new analysis in public_data_analysis.rmd" />
+    <MESSAGE value="Analysis Progress&#10;--------&#10;Add single_cell_analysis.rmd" />
+    <MESSAGE value="Enviroment Update&#10;--------&#10;Install survminer" />
+    <MESSAGE value="Analysis Progress&#10;--------&#10;Formatting updates (code and text)&#10;New plots&#10;Add batch correction&#10;Add cache dependency management" />
+    <MESSAGE value="Add Data Mainifests&#10;--------&#10;Clinical Information Manifest&#10;RNA Seq Manifest" />
+    <MESSAGE value="Analysis Progress&#10;--------&#10;Add new Plots&#10;Code Formatting&#10;Add code to change MGEA5 -&gt; OGA&#10;Add HTML to GitHub LFS" />
+    <MESSAGE value="Code Updates&#10;--------&#10;Workaround for rcastelo/GSVA#74&#10;Namespacing in import code" />
+    <MESSAGE value="IDE Updates&#10;--------" />
+    <MESSAGE value="Enviorment Update&#10;--------&#10;Recover from Undoing previous commit" />
+    <MESSAGE value="Bug Fixes&#10;--------&#10;GSVA error in .mapGeneSetsToFeatures fixed by skipping IRanges::CharacterList&#10;Use box to prevent namespace errors&#10;Add _dependencies.R to allow renv to continue working" />
+    <MESSAGE value="Bug Fixes&#10;--------&#10;Switch to fastmatch to keep names for geneset list&#10;Object name errors" />
+    <MESSAGE value="Enviroment Update&#10;--------&#10;No need for _dependencies.R as renv works with box" />
+    <MESSAGE value="Bug Fixes&#10;--------&#10;Fix GO:BP subsetting issue&#10;Remove heatmaps that take too long to render" />
+    <MESSAGE value="Environment Update&#10;--------&#10;Upgrade renv to 0.17.3" />
+    <MESSAGE value="Analysis Progress&#10;--------&#10;Test using ComplexHeatmap&#10;Change figure generation method to SVG&#10;Update renv.lock with new packages" />
+    <MESSAGE value="Analysis Progress&#10;--------&#10;Change DT options to have scrollbar and buttons&#10;Add all GO Gene sets" />
+    <MESSAGE value="Remove Large Files&#10;--------" />
+    <MESSAGE value="Improve Reproducibility&#10;--------&#10;Remove Section to subset data on a Mac" />
+    <MESSAGE value="Analysis Progress&#10;--------&#10;Calculate median expression per dataset&#10;Use all GO sets&#10;Fix spacing issues&#10;Add author name" />
+    <MESSAGE value="Improve Reproducibility&#10;--------&#10;Add script to download most data" />
+    <MESSAGE value="Enviorment Update&#10;--------&#10;Prevent renv activation on login node" />
+    <MESSAGE value="IDE Update&#10;--------" />
+    <MESSAGE value="Analysis Progress&#10;--------&#10;Code clean up&#10;Error handling&#10;Use SVG graphics" />
+    <option name="LAST_COMMIT_MESSAGE" value="Analysis Progress&#10;--------&#10;Code clean up&#10;Error handling&#10;Use SVG graphics" />
+  </component>
+</project>

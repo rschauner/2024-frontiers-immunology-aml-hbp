@@ -1,0 +1,20 @@
+channels:
+  - conda-forge
+dependencies:
+  - r-base=4.3
+  - r-box
+  - r-data.table
+  - r-r.utils
+  - r-glue
+  - r-purrr
+  - r-tibble
+  - r-readr
+  - r-stringr
+  - r-readxl
+  - r-ggplot2
+  - r-dplyr
+  - r-here
+  - bioconda::bioconductor-biobase
+  - bioconda::bioconductor-edger
+  - bioconda::bioconductor-limma
+  - bioconda::bioconductor-complexheatmap

@@ -1,0 +1,36 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="CustomRegExpInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="myConfigurations">
+        <list>
+          <RegExpInspectionConfiguration>
+            <option name="name" value="Remove Inline Argparse Arguments" />
+            <option name="problemDescriptor" value="Inclusion of arguments to parse_args() is probably a mistake #ref" />
+            <option name="uuid" value="94a4d073-cf3c-3fe5-8857-d271300c942e" />
+            <option name="patterns">
+              <list>
+                <InspectionPattern>
+                  <option name="regExp" value="(?&lt;=parse_args\()c\([A-Za-z\&quot;\s-,]*\)(?=\))" />
+                  <option name="_fileType" value="R" />
+                  <option name="searchContext" value="ANY" />
+                  <option name="replacement" value="" />
+                </InspectionPattern>
+              </list>
+            </option>
+          </RegExpInspectionConfiguration>
+        </list>
+      </option>
+    </inspection_tool>
+    <inspection_tool class="PyShadowingBuiltinsInspection" enabled="true" level="WEAK WARNING" enabled_by_default="true">
+      <option name="ignoredNames">
+        <list>
+          <option value="dir" />
+        </list>
+      </option>
+    </inspection_tool>
+    <inspection_tool class="PyShadowingNamesInspection" enabled="false" level="WEAK WARNING" enabled_by_default="false" />
+    <inspection_tool class="RClosureAssignmentInspection" enabled="true" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="SmkRedundantCommaInspection" enabled="false" level="WARNING" enabled_by_default="false" />
+  </profile>
+</component>

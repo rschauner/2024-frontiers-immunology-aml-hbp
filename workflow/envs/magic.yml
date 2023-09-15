@@ -1,0 +1,15 @@
+channels:
+  - conda-forge
+dependencies:
+  - r-base=4.3
+  - r-seurat=4.3
+  - r-box
+  - r-readr
+  - r-arrow
+  - r-matrixextra
+  - pyarrow
+  - python=3.11
+  - click
+  - pip
+  - pip:
+      - magic-impute

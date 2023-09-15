@@ -1,0 +1,16 @@
+channels:
+  - conda-forge
+dependencies:
+  - r-base=4.3
+  - r-seurat=4.3
+  - r-stringr
+  - r-dplyr
+  - r-readr
+  - r-tibble
+  - r-tidyr
+  - r-box
+  - r-ggplot2
+  - r-data.table
+  - r-r.utils
+  - r-cairo
+  - r-future

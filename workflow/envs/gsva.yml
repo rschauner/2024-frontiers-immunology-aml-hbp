@@ -1,0 +1,11 @@
+channels:
+  - conda-forge
+  - bioconda
+dependencies:
+  - r-base=4.3
+  - bioconductor-biobase
+  - bioconductor-gsva
+  - bioconductor-msigdb
+  - bioconductor-edger
+  - r-here
+  - r-box

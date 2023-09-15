@@ -1,0 +1,9 @@
+name: merge_files
+channels:
+  - conda-forge
+dependencies:
+  - python=3.11
+  - pandas
+  - pyarrow
+  - click
+  - pypdf2

@@ -1,0 +1,412 @@
+HBP_FEATURES = ["NAGK", "GNPNAT1", "PGM3", "UAP1", "OGT", "OGA", "GFPT2", "GFPT1"]
+
+
+rule all:
+    input:
+        expand(
+            "results/{analysis}_analysis_done",
+            analysis=["bulk", "stetson", "van_galen"],
+        ),
+    output:
+        touch("results/workflow_done"),
+
+
+rule import_data:
+    output:
+        dge="results/bulk/dge.rds",
+    params:
+        percent=10,
+    conda:
+        "envs/limma.yml"
+    script:
+        "scripts/bulk_rna_seq/import2.R"
+
+
+rule norm:
+    input:
+        dge=rules.import_data.output.dge,
+    output:
+        dge="results/bulk/norm.rds",
+    conda:
+        "envs/limma.yml"
+    script:
+        "scripts/bulk_rna_seq/normalize.R"
+
+
+rule de:
+    input:
+        "workflow/scripts/bulk_rna_seq/contrasts.R",
+        dge=rules.norm.output.dge,
+    params:
+        contrast="{contrast}",
+    output:
+        de=directory("results/bulk/transcriptome/{contrast}"),
+        voom="results/bulk/transcriptome/{contrast}.pdf",
+    conda:
+        "envs/limma.yml"
+    script:
+        "scripts/bulk_rna_seq/de.R"
+
+
+rule violin_plot:
+    input:
+        "workflow/scripts/bulk_rna_seq/contrasts.R",
+        dge=rules.norm.output.dge,
+    output:
+        pdf="results/bulk/violin.pdf",
+    conda:
+        "envs/limma.yml"
+    script:
+        "scripts/bulk_rna_seq/violin_plot.R"
+
+
+rule cor:
+    input:
+        dge=rules.norm.output.dge,
+    output:
+        "results/bulk/correlation.txt",
+    conda:
+        "envs/correlation.yml"
+    script:
+        "scripts/bulk_rna_seq/feature_correlation.R"
+
+
+rule gsva:
+    input:
+        dge="results/bulk/dge.rds",
+    output:
+        dge="results/bulk/gsva.rds",
+    conda:
+        "envs/gsva.yml"
+    script:
+        "scripts/bulk_rna_seq/gsva2.R"
+
+
+rule gsva_de:
+    input:
+        "workflow/scripts/bulk_rna_seq/contrasts.R",
+        dge=rules.gsva.output.dge,
+        transcriptome=rules.norm.output.dge,
+    params:
+        contrast="{contrast}",
+    output:
+        de=directory("results/bulk/GSVA/{contrast}"),
+    conda:
+        "envs/limma.yml"
+    script:
+        "scripts/bulk_rna_seq/gsva_de.R"
+
+
+CONTRASTS = ["HBP", "disease", "HBP_disease", "age", "ratio", "OGT", "OGA"]
+FEATURE_TYPE = ["transcriptome", "GSVA"]
+
+
+rule run_bulk_analysis:
+    input:
+        "results/bulk/correlation.txt",
+        "results/bulk/violin.pdf",
+        expand("results/bulk/{de}/{contrast}", contrast=CONTRASTS, de=FEATURE_TYPE),
+    output:
+        temporary(touch("results/bulk_analysis_done")),
+
+
+rule sc_import:
+    input:
+        seurat="data/seus.rds",
+    output:
+        seurat="results/sc/import.rds",
+    conda:
+        "envs/seurat.yml"
+    script:
+        "scripts/stetson_single_cell/sc_import.R"
+
+
+rule sc_filter:
+    input:
+        seurat=rules.sc_import.output.seurat,
+    params:
+        SCTransform="yes",
+    output:
+        seurat="results/sc/norm.rds",
+    conda:
+        "envs/seurat.yml"
+    script:
+        "scripts/stetson_single_cell/sc_filter_norm.R"
+
+
+rule sc_dimreduc:
+    input:
+        seurat=rules.sc_filter.output.seurat,
+    output:
+        seurat="results/sc/dim_reduc.rds",
+    conda:
+        "envs/seurat.yml"
+    script:
+        "scripts/stetson_single_cell/sc_dimension_reduction_and_clustering.R"
+
+
+rule sc_dimplot:
+    input:
+        seurat=rules.sc_dimreduc.output.seurat,
+    params:
+        group_by="{group}",
+        type="Grouped UMAP",
+        reduction="{red_assay}_umap"
+    output:
+        pdf="results/sc/dimplot/{red_assay}/{group}.pdf",
+    conda:
+        "envs/seurat.yml"
+    script:
+        "scripts/stetson_single_cell/sc_dim_plot.R"
+
+
+use rule sc_dimplot as sc_dotplot with:
+    input:
+        seurat=rules.sc_dimreduc.output.seurat,
+    params:
+        group_by="{group}",
+        type="Dot Plot",
+        fea_assay="{fea_assay}"
+    output:
+        pdf="results/sc/dotplot/{fea_assay}/{group}.pdf",
+
+
+use rule sc_dimplot as sc_barplot with:
+    input:
+        seurat=rules.sc_dimreduc.output.seurat,
+    params:
+        type="Bar Plot",
+        assay="{red_assay}",
+    output:
+        pdf="results/sc/barplot/{red_assay}.pdf",
+
+
+use rule sc_dimplot as sc_feature_plot with:
+    input:
+        seurat=rules.sc_dimreduc.output.seurat,
+    params:
+        type="Feature UMAP",
+        assay="{fea_assay}",
+        reduction="{red_assay}_umap",
+        features=HBP_FEATURES,
+    output:
+        pdf="results/sc/feature_plot/{red_assay}/{fea_assay}.pdf",
+
+
+rule sc_de:
+    input:
+        seurat=rules.sc_dimreduc.output.seurat,
+    params:
+        group_by="{group}",
+        assay="{assay}",
+    output:
+        tsv="results/sc/de/{assay}/{group}.tsv",
+    conda:
+        "envs/seurat.yml"
+    script:
+        "scripts/stetson_single_cell/sc_de.R"
+
+use rule sc_dimplot as sc_cluster_heatmap with:
+    input:
+        seurat=rules.sc_dimreduc.output.seurat,
+    params:
+        type="Cluster Heatmap",
+        assay="{red_assay}",
+    threads: min(4, int(workflow.cores))
+    output:
+        pdf="results/sc/heatmap/{red_assay}.pdf",
+
+ASSAYS = ["RNA", "SCT", "integrated"]
+
+
+rule run_stetson_analysis:
+    input:
+        expand(
+            "results/sc/dimplot/{assay}/{group}.pdf",
+            group=[
+                "SCT_clusters",
+                "RNA_clusters",
+                "integrated_clusters",
+                "patient_id",
+                "phenotype",
+            ],
+            assay=ASSAYS,
+        ),
+        expand(
+            "results/sc/dotplot/{fea_assay}/{group}.pdf",
+            fea_assay=["RNA", "SCT"],
+            group=[
+                "SCT_clusters",
+                "RNA_clusters",
+                "integrated_clusters",
+                "patient_id",
+                "phenotype",
+            ],
+        ),
+        expand(
+            "results/sc/de/{assay}/{group}.tsv",
+            group=["clusters", "patient_id", "phenotype"],
+            assay=ASSAYS,
+        ),
+        expand("results/sc/{plot_type}/{assay}.pdf", assay=ASSAYS, plot_type=["barplot", "heatmap"]),
+        expand("results/sc/feature_plot/{red_assay}/{fea_assay}.pdf", red_assay=ASSAYS, fea_assay=["RNA", "SCT"])
+    output:
+        temporary(touch("results/stetson_analysis_done")),
+
+
+rule sc2_import:
+    input:
+        "data/GSE116256_RAW/",
+    output:
+        seurat="results/sc2/preprocessing/import.rds",
+    conda:
+        "envs/seurat.yml"
+    script:
+        "scripts/public_single_cell/sc2_import.R"
+
+
+use rule sc_filter as sc2_filter with:
+    input:
+        seurat=rules.sc2_import.output.seurat,
+    params:
+        SCTransform="no",
+    output:
+        seurat="results/sc2/preprocessing/normalised.rds",
+
+
+rule magic_extract_assay:
+    input:
+        seurat=rules.sc2_filter.output.seurat,
+    output:
+        data="results/sc2/preprocessing/magic/assay_data.mtx",
+        genes="results/sc2/preprocessing/magic/assay_genes.csv",
+    conda:
+        "envs/magic.yml"
+    script:
+        "scripts/public_single_cell/magic.R"
+
+
+magic_threads = min(4, int(workflow.cores))
+
+
+rule magic_fit:
+    input:
+        script="workflow/scripts/public_single_cell/run_magic.py",
+        csv=rules.magic_extract_assay.output.data,
+    output:
+        pickle="results/sc2/preprocessing/magic/fit.pickle",
+    params:
+        solver="exact",
+    threads: magic_threads
+    conda:
+        "envs/magic.yml"
+    shell:
+        "python {input.script} fit {input.csv} {output.pickle} --solver {params.solver} --threads {threads}"
+
+
+rule magic_transform:
+    input:
+        script="workflow/scripts/public_single_cell/run_magic.py",
+        pickle=rules.magic_fit.output.pickle,
+        genes=rules.magic_extract_assay.output.genes,
+    params:
+        genes=["NAGK", "GNPNAT1", "PGM3", "UAP1", "OGT", "OGA", "GFPT2", "GFPT1"],
+    threads: magic_threads
+    output:
+        csv="results/sc2/preprocessing/magic/transform.feather",
+    conda:
+        "envs/magic.yml"
+    shell:
+        "python {input.script} transform --genes-path {input.genes} {input.pickle} {output.csv} {params.genes}"
+
+
+use rule magic_extract_assay as magic_insert_assay with:
+    input:
+        seurat=rules.sc2_filter.output.seurat,
+        magic=rules.magic_transform.output.csv,
+    output:
+        seurat="results/sc2/all_cells/object.rds",
+
+
+rule sc2_subset:
+    input:
+        seurat=rules.magic_insert_assay.output,
+    output:
+        diagnostic="results/sc2/diagnostic_only/object.rds",
+        cell_types_subset="results/sc2/cell_types_subset/object.rds",
+    conda:
+        "envs/seurat.yml"
+    script:
+        "scripts/public_single_cell/subset.R"
+
+
+rule sc2_plot:
+    input:
+        seurat="results/sc2/{subset}/object.rds",
+    params:
+        group="{group}",
+        assay="{assay}",
+        features="{feature}",
+        subset="{subset}",
+    output:
+        pdf="results/sc2/{subset}/{assay}/{group}/{feature}.pdf",
+    conda:
+        "envs/seurat.yml"
+    script:
+        "scripts/public_single_cell/sc2_plot.R"
+
+
+rule sc2_de:
+    input:
+        seurat=rules.sc2_plot.input.seurat,
+    params:
+        assay="{assay}",
+        features=HBP_FEATURES,
+    output:
+        tsv="results/sc2/{subset}/{assay}/de.tsv",
+    conda:
+        "envs/seurat.yml"
+    script:
+        "scripts/public_single_cell/sc2_de.R"
+
+
+rule sc2_stats:
+    input:
+        seurat=rules.sc2_plot.input.seurat,
+    output:
+        tsv="results/sc2/{subset}/summary.tsv",
+    conda:
+        "envs/seurat.yml"
+    script:
+        "scripts/public_single_cell/summary_stats.R"
+
+
+SUBSETS = ["all_cells", "diagnostic_only"]
+GROUPS = ["sample_origin", "collapsed_cell_types", "cell_types_origin"]
+ASSAYS2 = ["RNA", "MAGIC"]
+
+
+rule merge_plots:
+    input:
+        files=expand(
+            "results/sc2/{{subset}}/{{assay}}/{{group}}/{feature}.pdf",
+            feature=HBP_FEATURES,
+        ),
+        script="workflow/scripts/merge_documents.py",
+    params:
+        "pdf",
+    output:
+        "results/sc2/{subset}/{assay}/{group}.pdf",
+    conda:
+        "envs/merge_documents.yml"
+    shell:
+        "python {input.script} {params} {input.files} --output {output}"
+
+
+rule run_van_galen_analysis:
+    input:
+        expand(rules.sc2_stats.output.tsv, subset=SUBSETS),
+        expand(rules.sc2_de.output.tsv, assay=ASSAYS2, subset=SUBSETS),
+        expand(rules.merge_plots.output, group=GROUPS, assay=ASSAYS2, subset=SUBSETS),
+    output:
+        temporary(touch("results/van_galen_analysis_done")),

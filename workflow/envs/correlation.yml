@@ -1,0 +1,14 @@
+channels:
+  - conda-forge
+dependencies:
+  - r-base=4.3
+  - r-box
+  - r-tibble
+  - r-stringr
+  - r-broom
+  - r-readr
+  - r-purrr
+  - r-dplyr
+  - bioconda::bioconductor-biobase
+  - bioconda::bioconductor-edger
+  - bioconda::bioconductor-limma
