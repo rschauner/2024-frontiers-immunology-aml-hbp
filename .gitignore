@@ -1,3 +1,6 @@
-data
+data/*/
 .snakemake
 results
+/data/seus.rds
+/data/GSE116256_RAW.tar
+/data/GSE198919_Raw_Counts_table_RNAseq.txt.gz
