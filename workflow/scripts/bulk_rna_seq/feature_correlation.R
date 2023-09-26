@@ -7,7 +7,9 @@ box::use(
     stats,
     readr,
     dplyr,
-    purrr
+    purrr,
+    ggplot2,
+    Cairo[CairoPDF]
 )
 
 dge <- readRDS(snakemake@input[["dge"]])
@@ -26,4 +28,10 @@ purrr$map_dfc(fns, ~ .x(data)) |>
         rowname = stringr$str_pad(rowname, max(stringr$str_width(rowname))),
         V1 = stringr$str_pad(V1, max(stringr$str_width(V1)), side = "right")
     ) |>
-    readr$write_tsv(file = snakemake@output[[1]], col_names = FALSE)
+    readr$write_tsv(file = snakemake@output[["txt"]], col_names = FALSE)
+
+CairoPDF(snakemake@output[["pdf"]])
+ggplot2$ggplot(data = data, mapping = ggplot2$aes(x = OGA, y = OGT)) +
+    ggplot2$geom_point() +
+    ggplot2$theme_bw()
+graphics.off()

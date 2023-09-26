@@ -64,7 +64,8 @@ rule cor:
     input:
         dge=rules.norm.output.dge,
     output:
-        "results/bulk/correlation.txt",
+        txt="results/bulk/correlation.txt",
+        pdf="results/bulk/correlation.pdf",
     conda:
         "envs/correlation.yml"
     script:
@@ -103,8 +104,8 @@ FEATURE_TYPE = ["transcriptome", "GSVA"]
 
 rule run_bulk_analysis:
     input:
-        "results/bulk/correlation.txt",
         "results/bulk/violin.pdf",
+        expand("results/bulk/correlation.{ext}", ext=["txt", "pdf"]),
         expand("results/bulk/{de}/{contrast}", contrast=CONTRASTS, de=FEATURE_TYPE),
     output:
         temporary(touch("results/bulk_analysis_done")),

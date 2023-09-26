@@ -9,6 +9,7 @@ dependencies:
   - r-readr
   - r-purrr
   - r-dplyr
+  - r-cairo
   - bioconda::bioconductor-biobase
   - bioconda::bioconductor-edger
   - bioconda::bioconductor-limma
