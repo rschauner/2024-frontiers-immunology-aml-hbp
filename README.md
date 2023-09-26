@@ -1,6 +1,6 @@
 # Single Cell and Bulk Expression Analyses Identifies Enhanced Hexosamine Biosynthetic Pathway and O-GlcNAcylation in Acute Myeloid Leukemia
 
-## Running Analysis
+## Running the Analysis
 
 The workflow uses [Snakemake](https://snakemake.github.io/) and [mamba](https://mamba.readthedocs.io/en/latest/index.html). 
 To get started, install mamba by running the following code in the terminal (MacOS or Linux only):
@@ -29,6 +29,8 @@ St. Jude Cloud was used to acquire the RNA sequencing data (accession numbers: S
 All feature count files for diagnostic samples were collected. 
 You must request access to these files from [St. Jude Cloud](https://platform.stjude.cloud/data/cohorts). 
 
+The data can be downloaded to the `data/sj_counts` directory using St. Jude Cloud's instructions for batch downloading. 
+
 ### All other data
 
 In the conda env defined at `enviornment.yml`, run the following command: 
@@ -37,3 +39,4 @@ In the conda env defined at `enviornment.yml`, run the following command:
 chmod +x dataset_download.sh
 ./dataset_download.sh
 ```
+This will automatically download the data from GTEx; TCGA, BeatAML, and TARGET; and GSE198919, GSE116256, GSE126068, and GSE126068 in the proper places in the `data` directory.
