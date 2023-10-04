@@ -76,6 +76,6 @@ if (snakemake@params[["type"]] == "Grouped UMAP") {
     stop("Plot type not recognized")
 }
 
-Cairo$CairoPDF(snakemake@output[["pdf"]])
+Cairo$CairoPDF(snakemake@output[["pdf"]], dpi = 600, width = 180, height = 180)
 plot
 graphics.off()
