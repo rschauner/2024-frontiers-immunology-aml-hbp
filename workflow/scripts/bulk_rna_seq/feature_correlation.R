@@ -1,5 +1,5 @@
 
-
+options(box.path = here::here())
 box::use(
     tibble,
     stringr,
@@ -9,29 +9,50 @@ box::use(
     dplyr,
     purrr,
     ggplot2,
-    Cairo[CairoPDF]
+    tidyr,
+    forcats,
+    Cairo[CairoPDF],
+    limma,
+    lib = workflow/scripts/bulk_rna_seq/contrasts
 )
 
 dge <- readRDS(snakemake@input[["dge"]])
-data <- dge$counts[c("OGA", "OGT"), ] |> t() |> as.data.frame()
+v <- limma$voom(dge, model.matrix(~ 0 + dataset, data = dge$samples), plot = FALSE)
+data <- v$E[c("OGA", "OGT"), ] |> t() |> tibble$as_tibble()
+data$group <- dge$samples$simple_disease
 
-fns <- list(
-    cor = function(x) broom$tidy(cor.test(x[[1]], x[[2]])),
-    cov = function(x) stats$cov(x[[1]], x[[2]])
-)
-
-purrr$map_dfc(fns, ~ .x(data)) |>
-    t() |>
-    as.data.frame() |>
-    tibble$rownames_to_column() |>
+data <- data |>
+    dplyr$filter(group %in% c("AML", "Whole_Blood")) |>
     dplyr$mutate(
-        rowname = stringr$str_pad(rowname, max(stringr$str_width(rowname))),
-        V1 = stringr$str_pad(V1, max(stringr$str_width(V1)), side = "right")
+        group = group |> forcats$as_factor() |> forcats$fct_relevel("Whole_Blood", "AML")
     ) |>
-    readr$write_tsv(file = snakemake@output[["txt"]], col_names = FALSE)
+    dplyr$group_by(group)
+
+data |>
+    dplyr$summarise(
+        cov = cov(OGA, OGT),
+        cor = list(broom$tidy(cor.test(OGA, OGT)))
+    ) |>
+    tidyr$unnest(cor) |>
+    readr$write_tsv(file = snakemake@output[["cor"]])
+
+lm(OGT ~ OGA * group, data = data) |>
+    broom$tidy() |>
+    readr$write_tsv(file = snakemake@output[["lm"]])
 
 CairoPDF(snakemake@output[["pdf"]])
-ggplot2$ggplot(data = data, mapping = ggplot2$aes(x = OGA, y = OGT)) +
-    ggplot2$geom_point() +
-    ggplot2$theme_bw()
+ggplot2$ggplot(data = data, mapping = ggplot2$aes(x = OGA, y = OGT, color = group)) +
+    ggplot2$geom_point(alpha = 0.2) +
+    ggplot2$theme_bw() +
+    ggplot2$theme(aspect.ratio = 1) +
+    ggplot2$scale_color_manual(values = lib$AnnotationColors()$simple_disease)
+graphics.off()
+
+CairoPDF(snakemake@output[["pdf_lm"]])
+ggplot2$ggplot(data = data, mapping = ggplot2$aes(x = OGA, y = OGT, color = group)) +
+    ggplot2$geom_point(alpha = 0.2) +
+    ggplot2$theme_bw() +
+    ggplot2$scale_color_manual(values = lib$AnnotationColors()$simple_disease) +
+    ggplot2$theme(aspect.ratio = 1) +
+    ggplot2$geom_smooth(method = "lm")
 graphics.off()

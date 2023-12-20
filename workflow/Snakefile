@@ -64,8 +64,10 @@ rule cor:
     input:
         dge=rules.norm.output.dge,
     output:
-        txt="results/bulk/correlation.txt",
+        cor="results/bulk/correlation.tsv",
+        lm="results/bulk/correlation_lm.tsv",
         pdf="results/bulk/correlation.pdf",
+        pdf_lm="results/bulk/correlation_lm.pdf",
     conda:
         "envs/correlation.yml"
     script:
@@ -105,7 +107,7 @@ FEATURE_TYPE = ["transcriptome", "GSVA"]
 rule run_bulk_analysis:
     input:
         "results/bulk/violin.pdf",
-        expand("results/bulk/correlation.{ext}", ext=["txt", "pdf"]),
+        expand("results/bulk/correlation{lm}.{ext}", ext=["tsv", "pdf"], lm=["", "_lm"]),
         expand("results/bulk/{de}/{contrast}", contrast=CONTRASTS, de=FEATURE_TYPE),
     output:
         temporary(touch("results/bulk_analysis_done")),
@@ -270,7 +272,7 @@ use rule sc_filter as sc2_filter with:
     input:
         seurat=rules.sc2_import.output.seurat,
     params:
-        SCTransform="no",
+        SCTransform="yes",
     output:
         seurat="results/sc2/preprocessing/normalised.rds",
 
@@ -347,10 +349,11 @@ rule sc2_plot:
     params:
         group="{group}",
         assay="{assay}",
-        features="{feature}",
+        #features="{feature}",
         subset="{subset}",
     output:
-        pdf="results/sc2/{subset}/{assay}/{group}/{feature}.pdf",
+        #pdf="results/sc2/{subset}/{assay}/{group}/{feature}.pdf",
+        pdf = "results/sc2/{subset}/{assay}/{group}.pdf",
     conda:
         "envs/seurat.yml"
     script:

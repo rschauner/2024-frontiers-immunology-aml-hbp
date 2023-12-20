@@ -4,11 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8fd88459-a92a-4bee-854b-a6fd252db97a" name="Changes" comment="Analysis Progress&#10;--------&#10;Code clean up&#10;Error handling&#10;Use SVG graphics">
-      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+    <list default="true" id="8fd88459-a92a-4bee-854b-a6fd252db97a" name="Changes" comment="Analysis Update&#10;---------&#10;Increase DPI for CairoPDF graphics">
+      <change afterPath="$PROJECT_DIR$/flow_correlation.qmd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/rAvailablePackageCache.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/rAvailablePackageCache.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/rGraphicsSettings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/rGraphicsSettings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/workflow/Snakefile" beforeDir="false" afterPath="$PROJECT_DIR$/workflow/Snakefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/workflow/envs/correlation.yml" beforeDir="false" afterPath="$PROJECT_DIR$/workflow/envs/correlation.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/workflow/scripts/bulk_rna_seq/feature_correlation.R" beforeDir="false" afterPath="$PROJECT_DIR$/workflow/scripts/bulk_rna_seq/feature_correlation.R" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/workflow/scripts/public_single_cell/sc2_plot.R" beforeDir="false" afterPath="$PROJECT_DIR$/workflow/scripts/public_single_cell/sc2_plot.R" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/workflow/scripts/stetson_single_cell/sc_dim_plot.R" beforeDir="false" afterPath="$PROJECT_DIR$/workflow/scripts/stetson_single_cell/sc_dim_plot.R" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,8 +30,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="RMarkdown.document" />
-        <option value="R Script" />
         <option value="Python Script" />
+        <option value="R Script" />
       </list>
     </option>
   </component>
@@ -51,39 +57,40 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "true",
-    "WebServerToolWindowPanel.toolwindow.highlight.mappings": "true",
-    "WebServerToolWindowPanel.toolwindow.highlight.symlinks": "true",
-    "WebServerToolWindowPanel.toolwindow.show.date": "false",
-    "WebServerToolWindowPanel.toolwindow.show.permissions": "false",
-    "WebServerToolWindowPanel.toolwindow.show.size": "false",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "/Users/M262567/Projects/aml_hbp",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "shared-indexes",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowPanel.toolwindow.highlight.mappings&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowPanel.toolwindow.highlight.symlinks&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowPanel.toolwindow.show.date&quot;: &quot;false&quot;,
+    &quot;WebServerToolWindowPanel.toolwindow.show.permissions&quot;: &quot;false&quot;,
+    &quot;WebServerToolWindowPanel.toolwindow.show.size&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/M262567/Documents/projects2/aml_hbp&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;shared-indexes&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "GitStage.ChangesTree.GroupingKeys": [
-      "directory",
-      "module",
-      "repository"
+  &quot;keyToStringList&quot;: {
+    &quot;GitStage.ChangesTree.GroupingKeys&quot;: [
+      &quot;directory&quot;,
+      &quot;module&quot;,
+      &quot;repository&quot;
     ],
-    "com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File": [
-      "Python",
-      "PLAIN_TEXT"
+    &quot;com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File&quot;: [
+      &quot;R&quot;,
+      &quot;Python&quot;,
+      &quot;PLAIN_TEXT&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
       <console-settings>
@@ -131,12 +138,19 @@
       <recent name="$PROJECT_DIR$/workflow/envs/" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/data/flow" />
       <recent name="$PROJECT_DIR$/workflow/scripts/bulk_rna_seq" />
       <recent name="$PROJECT_DIR$/workflow/scripts/stetson_single_cell" />
       <recent name="$PROJECT_DIR$/workflow/scripts/public_single_cell" />
       <recent name="$PROJECT_DIR$/workflow" />
-      <recent name="$PROJECT_DIR$/workflow/envs" />
     </key>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-python-sdk-5b34670a16e9-217945854cb2-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-233.13135.26" />
+      </set>
+    </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
@@ -224,7 +238,22 @@
       <workItem from="1694018750066" duration="19225000" />
       <workItem from="1694544638753" duration="5517000" />
       <workItem from="1694707063826" duration="4357000" />
-      <workItem from="1694792737752" duration="2226000" />
+      <workItem from="1694792737752" duration="2709000" />
+      <workItem from="1695235268602" duration="4240000" />
+      <workItem from="1695743698155" duration="633000" />
+      <workItem from="1695997510425" duration="5405000" />
+      <workItem from="1696347704164" duration="4499000" />
+      <workItem from="1696445201197" duration="171000" />
+      <workItem from="1696533859941" duration="2407000" />
+      <workItem from="1697035453101" duration="12324000" />
+      <workItem from="1697137271069" duration="2135000" />
+      <workItem from="1697205884016" duration="6303000" />
+      <workItem from="1697476698743" duration="2901000" />
+      <workItem from="1702396231968" duration="38000" />
+      <workItem from="1702396284547" duration="22593000" />
+      <workItem from="1702498575208" duration="4352000" />
+      <workItem from="1702584863775" duration="1405000" />
+      <workItem from="1703016351402" duration="1055000" />
     </task>
     <task id="LOCAL-00001" summary="IDE Changes and Minor code updates&#10;--------&#10;Add renv.lock file&#10;Add .Rprofile for project&#10;Text updates and reorganizing in public_data_analysis.rmd">
       <created>1680551982093</created>
@@ -436,7 +465,47 @@
       <option name="project" value="LOCAL" />
       <updated>1684169339435</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="Add README.md">
+      <option name="closed" value="true" />
+      <created>1694795121176</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1694795121176</updated>
+    </task>
+    <task id="LOCAL-00032" summary="Add Data Manifests&#10;Update .gitignore">
+      <option name="closed" value="true" />
+      <created>1694795157942</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1694795157942</updated>
+    </task>
+    <task id="LOCAL-00033" summary="Updated the README.md&#10;---------&#10;Improve clarity by providing link to Mamba documentation">
+      <option name="closed" value="true" />
+      <created>1694795355661</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1694795355661</updated>
+    </task>
+    <task id="LOCAL-00034" summary="Analysis Update&#10;---------&#10;Add PDF Graphics to feature_correlation.R">
+      <option name="closed" value="true" />
+      <created>1695744250596</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1695744250596</updated>
+    </task>
+    <task id="LOCAL-00035" summary="Analysis Update&#10;---------&#10;Increase DPI for CairoPDF graphics">
+      <option name="closed" value="true" />
+      <created>1696445362580</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1696445362580</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -457,11 +526,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="IDE Changes and Minor code updates&#10;--------&#10;Add renv.lock file&#10;Add .Rprofile for project&#10;Text updates and reorganizing in public_data_analysis.rmd" />
-    <MESSAGE value="Analysis Progress&#10;--------&#10;Update renv with single cell packages&#10;Headings, new analysis in public_data_analysis.rmd" />
-    <MESSAGE value="Analysis Progress&#10;--------&#10;Add single_cell_analysis.rmd" />
-    <MESSAGE value="Enviroment Update&#10;--------&#10;Install survminer" />
-    <MESSAGE value="Analysis Progress&#10;--------&#10;Formatting updates (code and text)&#10;New plots&#10;Add batch correction&#10;Add cache dependency management" />
     <MESSAGE value="Add Data Mainifests&#10;--------&#10;Clinical Information Manifest&#10;RNA Seq Manifest" />
     <MESSAGE value="Analysis Progress&#10;--------&#10;Add new Plots&#10;Code Formatting&#10;Add code to change MGEA5 -&gt; OGA&#10;Add HTML to GitHub LFS" />
     <MESSAGE value="Code Updates&#10;--------&#10;Workaround for rcastelo/GSVA#74&#10;Namespacing in import code" />
@@ -481,6 +545,12 @@
     <MESSAGE value="Enviorment Update&#10;--------&#10;Prevent renv activation on login node" />
     <MESSAGE value="IDE Update&#10;--------" />
     <MESSAGE value="Analysis Progress&#10;--------&#10;Code clean up&#10;Error handling&#10;Use SVG graphics" />
-    <option name="LAST_COMMIT_MESSAGE" value="Analysis Progress&#10;--------&#10;Code clean up&#10;Error handling&#10;Use SVG graphics" />
+    <MESSAGE value="Add README.md" />
+    <MESSAGE value="Add Data Manifests&#10;Update .gitignore" />
+    <MESSAGE value="Update README.md&#10;--------&#10;Add link to mamba docs" />
+    <MESSAGE value="Updated the README.md&#10;---------&#10;Improve clarity by providing link to Mamba documentation" />
+    <MESSAGE value="Analysis Update&#10;---------&#10;Add PDF Graphics to feature_correlation.R" />
+    <MESSAGE value="Analysis Update&#10;---------&#10;Increase DPI for CairoPDF graphics" />
+    <option name="LAST_COMMIT_MESSAGE" value="Analysis Update&#10;---------&#10;Increase DPI for CairoPDF graphics" />
   </component>
 </project>

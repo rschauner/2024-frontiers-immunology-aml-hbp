@@ -10,6 +10,9 @@ dependencies:
   - r-purrr
   - r-dplyr
   - r-cairo
+  - r-forcats
+  - r-tidyr
+  - r-here
   - bioconda::bioconductor-biobase
   - bioconda::bioconductor-edger
   - bioconda::bioconductor-limma

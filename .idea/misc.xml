@@ -3,7 +3,7 @@
   <component name="Black">
     <option name="enabledOnReformat" value="true" />
     <option name="enabledOnSave" value="true" />
-    <option name="sdkUUID" value="c89018e5-0457-41cf-8f89-b2dc5b71da4e" />
+    <option name="sdkName" value="aml_hbp" />
   </component>
   <component name="ProjectRootManager" version="2" project-jdk-name="aml_hbp" project-jdk-type="Python SDK" />
   <component name="RMarkdownSettings">
@@ -62,6 +62,13 @@
           <value>
             <RMarkdownRenderProfile>
               <option name="outputDirectoryUrl" value="file://$PROJECT_DIR$/analysis" />
+            </RMarkdownRenderProfile>
+          </value>
+        </entry>
+        <entry key="file://$PROJECT_DIR$/flow_correlation.qmd">
+          <value>
+            <RMarkdownRenderProfile>
+              <option name="outputDirectoryUrl" value="file://$PROJECT_DIR$" />
             </RMarkdownRenderProfile>
           </value>
         </entry>

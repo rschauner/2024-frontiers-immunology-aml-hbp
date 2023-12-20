@@ -18,13 +18,19 @@ DrawFeatureUMAP <- function(seurat, features, reduction) {
     Seurat$FeaturePlot(seurat, features = features, combine = FALSE, order = TRUE, reduction = reduction)
 }
 DrawDotPlot <- function(seurat, group_by, scale = TRUE) {
+    if (scale) {
+        cols <- c("lightgrey", "blue")
+    } else {
+        cols <- c("lightgrey", "red")
+    }
     Seurat$DotPlot(
         seurat,
         features = c("OGT", "OGA"),
         group.by = group_by,
-        #scale.min = 20, scale.max = 60,
+        scale.min = 60, scale.max = 100,
         col.min = -2, col.max = 2,
-        scale = scale
+        scale = scale,
+        cols = cols
     )
 }
 DrawBarGraph <- function(seurat, assay) {
